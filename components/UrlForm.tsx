@@ -14,14 +14,13 @@ export default function Form() {
 
     const data = { alias, url }; 
 
-    try {
-      await saveUrl(data);
-      setShortenedUrl(`https://mp-5-wine.vercel.app/${alias}`);
-    } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-      }
+    const errorMessage = await saveUrl(data);
+    if (errorMessage) {
+      setError(errorMessage);
+      return;
     }
+
+    setShortenedUrl(`https://mp-5-wine.vercel.app/${alias}`);
   };
 
   return (

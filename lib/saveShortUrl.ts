@@ -16,5 +16,6 @@ export async function saveUrl({ alias, url }: UrlProps) {
   }
 
   await urls.insertOne({ alias, url });
+  return null
 }
 
