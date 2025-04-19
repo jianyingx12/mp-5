@@ -15,9 +15,9 @@ export default function Form() {
     const data = { alias, url }; 
 
     const errorMessage = await saveUrl(data);
-    if (errorMessage) {
-      setError(errorMessage);
-      return;
+    if (errorMessage !== null) {              
+      setError(errorMessage);                 
+      return;                                  
     }
 
     setShortenedUrl(`https://mp-5-wine.vercel.app/${alias}`);
