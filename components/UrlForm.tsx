@@ -16,7 +16,7 @@ export default function Form() {
 
     try {
       await saveUrl(data);
-      setShortenedUrl(`http://localhost:3000/${alias}`);
+      setShortenedUrl(`https://mp-5-wine.vercel.app/${alias}`);
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
