@@ -7,12 +7,12 @@ export async function saveUrl({ alias, url }: UrlProps) {
 
   const existing = await urls.findOne({ alias });
   if (existing) {
-    throw new Error("Alias already exists");
+    return "Alias already exists";
   }
 
   const validUrl = /^https?:\/\/.+/;
   if (!url.match(validUrl)) {
-    throw new Error("Invalid URL");
+    return "Invalid URL";
   }
 
   await urls.insertOne({ alias, url });
